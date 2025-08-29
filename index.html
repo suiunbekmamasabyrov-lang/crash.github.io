@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash Shop - Свежие овощи и фрукты</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .fruit-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="fruit-bg">
+    <!-- Навигация -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-purple-800">🍎 Crash Shop</h1>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="showPage('home')" class="nav-button bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Главная</button>
+                    <button onclick="showPage('catalog')" class="nav-button bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Каталог</button>
+                    <button onclick="showPage('about')" class="nav-button bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700">О нас</button>
+                    <button onclick="showPage('delivery')" class="nav-button bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Доставка</button>
+                    <button onclick="showPage('contact')" class="nav-button bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Контакты</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная страница -->
+    <div id="home" class="page active">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold text-white mb-4">Добро пожаловать в Crash Shop!</h2>
+                <p class="text-xl text-white/90 mb-8">Самые свежие овощи и фрукты прямо к вашему столу</p>
+                <button onclick="showPage('catalog')" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105">
+                    🛒 Начать покупки
+                </button>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-white/95 rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">🍓</div>
+                    <h3 class="text-xl font-bold mb-2">Свежие ягоды</h3>
+                    <p class="text-gray-600">Клубника, малина, черника - все самое вкусное!</p>
+                </div>
+                <div class="bg-white/95 rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">🥕</div>
+                    <h3 class="text-xl font-bold mb-2">Овощи</h3>
+                    <p class="text-gray-600">Морковь, картофель, капуста - для здорового питания</p>
+                </div>
+                <div class="bg-white/95 rounded-2xl p-6 card-hover">
+                    <div class="text-4xl mb-4">🍊</div>
+                    <h3 class="text-xl font-bold mb-2">Цитрусовые</h3>
+                    <p class="text-gray-600">Апельсины, лимоны, грейпфруты - витамины круглый год</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Каталог -->
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="алма.jpg" alt="Яблоко" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">Яблоко</h3>
+    <p class="text-center text-gray-600 mb-4">120 сом/кг</p>
+    <button class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="мандарин.jpg" alt="мандарин" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">мандарин</h3>
+    <p class="text-center text-gray-600 mb-4">80 сом/кг</p>
+    <button class="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="лимон.jpg" alt="лимон" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">лимон</h3>
+    <p class="text-center text-gray-600 mb-4">90 сом/кг</p>
+    <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="манго.jpg" alt="манго" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">манго</h3>
+    <p class="text-center text-gray-600 mb-4">100 сом/кг</p>
+    <button class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="банан.jpg" alt="банан" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">банан</h3>
+    <p class="text-center text-gray-600 mb-4">150 сом/кг</p>
+    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="киви.jpg" alt="Киви" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">Киви</h3>
+    <p class="text-center text-gray-600 mb-4">200 сом/кг</p>
+    <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="жузум.jpg" alt="жузум" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">жузум</h3>
+    <p class="text-center text-gray-600 mb-4">250 сом/кг</p>
+    <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 card-hover">
+    <div class="flex justify-center mb-4">
+      <img src="клубника.jpg" alt="клубника" class="w-24 h-24 object-contain" />
+    </div>
+    <h3 class="text-xl font-bold text-center mb-2">клубника</h3>
+    <p class="text-center text-gray-600 mb-4">70 сом/кг</p>
+    <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg">В корзину</button>
+  </div>
+
+</div>
+
+
+    <!-- О нас -->
+    <div id="about" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-white text-center mb-12">О нашем магазине</h2>
+            
+            <div class="bg-white/95 rounded-2xl p-8 mb-8">
+                <div class="text-center mb-8">
+                    <div class="text-8xl mb-4">🏪</div>
+                    <h3 class="text-2xl font-bold mb-4">Crash Shop - ваш надежный партнер</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-purple-800">Наша история</h4>
+                        <p class="text-gray-700 mb-4">
+                            Crash Shop работает на рынке уже более 10 лет. Мы начинали как небольшой семейный бизнес 
+                            и выросли в одну из ведущих сетей по продаже свежих овощей и фруктов.
+                        </p>
+                        <p class="text-gray-700">
+                            Наша миссия - обеспечить каждую семью самыми свежими и качественными продуктами 
+                            по доступным ценам.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 text-green-800">Наши преимущества</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Свежие продукты каждый день</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Прямые поставки от фермеров</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Контроль качества на всех этапах</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Доступные цены</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Быстрая доставка</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Доставка -->
+    <div id="delivery" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-white text-center mb-12">Доставка и оплата</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/95 rounded-2xl p-8">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">🚚</div>
+                        <h3 class="text-2xl font-bold text-blue-800">Доставка</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-bold">Быстрая доставка</h4>
+                            <p class="text-gray-600">В течение 2-4 часов по городу</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-bold">Бесплатная доставка</h4>
+                            <p class="text-gray-600">При заказе от 1500 ₽</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-bold">Зона доставки</h4>
+                            <p class="text-gray-600">В пределах МКАД и ближайшие районы</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/95 rounded-2xl p-8">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">💳</div>
+                        <h3 class="text-2xl font-bold text-green-800">Оплата</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-bold">Наличными</h4>
+                            <p class="text-gray-600">Курьеру при получении</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-bold">Банковской картой</h4>
+                            <p class="text-gray-600">Visa, MasterCard, МИР</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="font-bold">Онлайн переводом</h4>
+                            <p class="text-gray-600">СБП, Яндекс.Деньги</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white/95 rounded-2xl p-8 mt-8">
+                <h3 class="text-2xl font-bold text-center mb-6">Стоимость доставки</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2">
+                                <th class="text-left py-2">Сумма заказа</th>
+                                <th class="text-left py-2">Стоимость доставки</th>
+                                <th class="text-left py-2">Время доставки</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="py-2">До 500 сом</td>
+                                <td class="py-2">200 сом</td>
+                                <td class="py-2">2-3 часа</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2">500-1500 сом</td>
+                                <td class="py-2">150 сом</td>
+                                <td class="py-2">2-3 часа</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-2">От 1500 сом</td>
+                                <td class="py-2 text-green-600 font-bold">Бесплатно</td>
+                                <td class="py-2">2 часа</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <div id="contact" class="page">
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-white text-center mb-12">Свяжитесь с нами</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/95 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-red-800">Контактная информация</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="text-3xl mr-4">📍</div>
+                            <div>
+                                <h4 class="font-bold">Адрес</h4>
+                                <p class="text-gray-600">Джалал-Абад. КР</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="text-3xl mr-4">📞</div>
+                            <div>
+                                <h4 class="font-bold">Телефон</h4>
+                                <p class="text-gray-600"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="text-3xl mr-4">📧</div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-600">info@crashshop.ru</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="text-3xl mr-4">🕒</div>
+                            <div>
+                                <h4 class="font-bold">Режим работы</h4>
+                                <p class="text-gray-600">Ежедневно с 8:00 до 22:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/95 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-800">Напишите нам</h3>
+                    
+                    <form class="space-y-4" onsubmit="handleContactForm(event)">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Ваше имя</label>
+                            <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500" placeholder="Введите ваше имя" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Email</label>
+                            <input type="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Сообщение</label>
+                            <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500 h-24" placeholder="Ваше сообщение..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-lg transition-colors">
+                            Отправить сообщение
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 p-4 bg-yellow-100 rounded-lg">
+                        <p class="text-sm text-yellow-800">
+                            <strong>Демо:</strong> Это демонстрационная форма. В реальном магазине сообщения отправлялись бы на сервер.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Скрыть все страницы
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Показать выбранную страницу
+            document.getElementById(pageId).classList.add('active');
+            
+            // Прокрутить наверх
+            window.scrollTo(0, 0);
+        }
+        
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Спасибо за ваше сообщение! В реальном магазине оно было бы отправлено нашей команде.');
+            event.target.reset();
+        }
+        
+        // Добавить функциональность кнопок "В корзину"
+        document.addEventListener('click', function(e) {
+            if (e.target.textContent === 'В корзину') {
+                const productName = e.target.parentElement.querySelector('h3').textContent;
+                alert(`${productName} добавлен в корзину! 🛒`);
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97624c68712528ff',t:'MTc1NjM2ODI3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
